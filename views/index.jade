@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 #{title}
+  br
+
+  table.table.table-striped.table-bordered
+    tr
+      td First Name
+      td Last Name   
+    each person in people
+      tr
+        td #{person.first_name}
+        td #{person.last_name}
+  hr
+  form.well(action="/addperson", method="post")
+    label Person Name:
+    input(name="name", type="textbox")
+    br
+    button.btn(type="submit") Add Person
